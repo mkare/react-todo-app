@@ -1,0 +1,14 @@
+@import "scss/vendor";
+
+.checkbox {
+  visibility: hidden;
+
+  &-icon {
+    opacity: 0.25;
+    transition: opacity 0.2s ease-in-out;
+
+    &.checked {
+      opacity: 0.65;
+    }
+  }
+}

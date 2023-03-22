@@ -1,0 +1,21 @@
+@import "scss/vendor";
+
+.input {
+  appearance: none;
+  border-radius: $border-radius;
+  border: 1px solid lighten($dark, 60%);
+  color: $dark;
+  font-weight: 400;
+  font-size: $font-size-base;
+  padding: $spacer-y $spacer-x;
+
+  &:focus {
+    outline: none;
+    border-color: lighten($primary, 30%);
+  }
+
+  &::placeholder {
+    color: lighten($dark, 50%);
+    font-style: italic;
+  }
+}

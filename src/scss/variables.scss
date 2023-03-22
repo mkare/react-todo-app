@@ -1,0 +1,49 @@
+// font variables
+$font-family-sans-serif: "Montserrat", sans-serif;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 20px;
+
+// colors
+$pumpkin: #ff793f;
+$lucky: #39396a;
+$white: #fff;
+$lynx-white: #f5f6fa;
+$jalapeno: #b71540;
+$forest-blues: #0a192f;
+$imperial-primer: #222f3e;
+
+$primary: $lucky;
+$secondary: $pumpkin;
+$danger: $jalapeno;
+$light: $lynx-white;
+$dark: $imperial-primer;
+
+// breakpoint variables
+$breakpoints: (
+  mobile: "480px",
+  tablet: "768px",
+  laptop: "1024px",
+  desktop: "1200px",
+);
+
+$container-max-widths: (
+  tablet: 720px,
+  laptop: 960px,
+  desktop: 1140px,
+);
+
+// border-radius
+$border-radius: rem(4px);
+$border-radius-lg: rem(8px);
+$border-radius-xl: rem(16px);
+
+// spacing
+$spacer-sm: rem(8px);
+$spacer: rem(16px);
+$spacer-lg: rem(32px);
+$spacer-xl: rem(48px);
+$spacer-2xl: rem(64px);
+
+$spacer-x: $spacer;
+$spacer-y: $spacer-sm;

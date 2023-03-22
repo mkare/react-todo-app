@@ -1,0 +1,18 @@
+@import "scss/vendor";
+
+.edit-task {
+  display: flex;
+  padding: $spacer-sm 0;
+  width: 100%;
+
+  .input {
+    flex: 1 0 auto;
+    margin-right: $spacer-sm;
+    margin-bottom: rem(1px);
+    margin-top: rem(2px);
+  }
+
+  .button {
+    margin-right: $spacer-sm;
+  }
+}

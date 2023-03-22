@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap");
+@import "vendor";
+@import "normalize-css";
+
+html,
+body {
+  font-family: $font-family-sans-serif;
+  font-size: rem($font-size-base);
+  line-height: 1.5;
+}

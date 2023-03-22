@@ -1,0 +1,21 @@
+@import "scss/vendor";
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $spacer;
+  box-sizing: border-box;
+
+  @include breakpoint-up("tablet") {
+    max-width: get-breakpoints("tablet");
+  }
+
+  @include breakpoint-up("laptop") {
+    max-width: get-breakpoints("laptop");
+    padding: 0 $spacer-lg;
+  }
+
+  @include breakpoint-up("desktop") {
+    max-width: get-breakpoints("desktop");
+  }
+}

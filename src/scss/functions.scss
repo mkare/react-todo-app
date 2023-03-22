@@ -1,0 +1,31 @@
+@use "sass:math";
+
+$em-base: if(variable-exists(default-font-size), $fontSizeDefault, 16px);
+@function rem($pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  $base: $em-base;
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return math.div($pxval, $base) * 1rem;
+}
+
+@function em($pxval, $base: $em-base) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return math.div($pxval, $base) * 1em;
+}
+
+@function strip-units($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+@function get-breakpoints($key: "tablet") {
+  @return map-get($container-max-widths, $key);
+}

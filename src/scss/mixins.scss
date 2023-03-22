@@ -1,0 +1,34 @@
+@mixin breakpoint-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @error "No breakpoint found for #{$breakpoint}.";
+  }
+}
+
+@mixin breakpoint-down($breakpoint) {
+  $nextBreakpoint: null;
+  $keys: map-keys($breakpoints);
+
+  @each $key in $keys {
+    @if $key == $breakpoint {
+      @if $nextBreakpoint {
+        @media (max-width: #{map-get($breakpoints, $nextBreakpoint) - 1}) {
+          @content;
+        }
+      } @else {
+        @media (max-width: #{map-get($breakpoints, $key)}) {
+          @content;
+        }
+      }
+    }
+
+    $nextBreakpoint: $key;
+  }
+
+  @if $nextBreakpoint == null {
+    @error "No breakpoint found for #{$breakpoint}.";
+  }
+}

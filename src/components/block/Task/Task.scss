@@ -1,0 +1,27 @@
+@import "scss/vendor";
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    &:first-child {
+      flex: 1;
+    }
+  }
+
+  .button {
+    &.danger {
+      color: $danger;
+    }
+  }
+
+  p.overlined {
+    text-decoration: line-through;
+  }
+}

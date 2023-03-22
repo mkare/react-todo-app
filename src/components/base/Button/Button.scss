@@ -1,0 +1,71 @@
+@import "scss/vendor";
+
+.button {
+  appearance: none;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  padding: $spacer-y $spacer-x;
+
+  &.primary {
+    background-color: $primary;
+  }
+
+  &.danger {
+    background-color: $danger;
+  }
+
+  &.dark {
+    background-color: $dark;
+  }
+
+  &.primary,
+  &.danger,
+  &.dark {
+    color: $white;
+
+    &:hover {
+      opacity: 0.875;
+    }
+  }
+
+  &.light {
+    background-color: $light;
+    color: $dark;
+
+    &:hover {
+      background-color: darken($light, 5%);
+    }
+  }
+
+  &.link {
+    background-color: transparent;
+    color: $primary;
+
+    &:hover {
+      color: $dark;
+    }
+  }
+
+  &.disabled {
+    background-color: $light;
+    color: $dark;
+    cursor: not-allowed;
+  }
+
+  &.block {
+    display: block;
+    width: 100%;
+  }
+
+  &.with-icon {
+    display: flex;
+    justify-content: center;
+    padding: calc($spacer-y - 2px) $spacer-sm;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

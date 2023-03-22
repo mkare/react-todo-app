@@ -1,0 +1,17 @@
+@import "scss/vendor";
+
+.add-task {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+
+  @include breakpoint-up("tablet") {
+    max-width: rem(600px);
+  }
+
+  .input {
+    flex: 1 0 0 auto;
+    margin-right: $spacer-y;
+  }
+}
