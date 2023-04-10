@@ -1,6 +1,8 @@
 import type {} from "redux-thunk/extend-redux";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
+import TodoApi from "utils/TodoApi";
+
 interface Todo {
   id: string;
   content: string;
@@ -10,51 +12,30 @@ interface Todo {
 interface TodosState extends Array<Todo> {}
 
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
-  const response = await fetch(
-    "https://6419173375be53f451ec85c6.mockapi.io/todo"
-  );
-  const data = await response.json();
-  return data;
+  const todos = await TodoApi.fetchTodos();
+  return todos;
 });
 
 export const addTodoAsync = createAsyncThunk(
   "todos/addTodo",
   async (content: string) => {
-    const response = await fetch(
-      "https://6419173375be53f451ec85c6.mockapi.io/todo",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ content, completed: false }),
-      }
-    );
-    const data = await response.json();
-    return data;
+    const todo = await TodoApi.addTodo(content);
+    return todo;
   }
 );
 
 export const updateTodoAsync = createAsyncThunk(
   "todos/updateTodo",
   async (todo: Todo) => {
-    await fetch(`https://6419173375be53f451ec85c6.mockapi.io/todo/${todo.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(todo),
-    });
-    return todo;
+    const updatedTodo = await TodoApi.updateTodo(todo);
+    return updatedTodo;
   }
 );
 
 export const deleteTodoAsync = createAsyncThunk(
   "todos/deleteTodo",
   async (id: string) => {
-    await fetch(`https://6419173375be53f451ec85c6.mockapi.io/todo/${id}`, {
-      method: "DELETE",
-    });
+    await TodoApi.deleteTodo(id);
     return id;
   }
 );
